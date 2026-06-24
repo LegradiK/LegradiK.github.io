@@ -589,6 +589,7 @@
 </section>
 
 
+
 <!-- PROJECTS -->
 <section id="projects">
   <div class="section-label">Things I've built</div>
@@ -687,29 +688,38 @@
       </div>
     </div>
  
-    <!-- EDUCATIONAL APPS SUITE -->
-    <div class="project-card">
+    <!-- EDUCATIONAL APPS SUITE — WIDE -->
+    <div class="project-card wide">
       <div class="project-header">
         <div class="project-name">Educational Apps Suite</div>
         <span class="project-badge">3 projects</span>
       </div>
-      <div class="project-desc">
-        Three Flask-based learning apps for primary school children:<br><br>
-        <strong>Letter Quest</strong> — KS1 crossword puzzle app with a 674-word bank across 22 categories, emoji picture clues, and a difficulty selector.<br><br>
-        <strong>MathDrill</strong> — Arithmetic practice app covering addition, subtraction, multiplication, and division. Features adjustable difficulty levels, two question layouts (inline and stacked column), score tracking with streaks, and instant feedback. All session state managed via Flask sessions — no database required.<br><br>
-        <strong>Word Wizard</strong> — Phonics and spelling quiz for Reception–Year 2. Children hear a word spoken aloud (via Puter AI with British English voices, falling back to browser speech synthesis) and type what they hear. Includes 4 stages from simple CVC words up to full sentence comprehension, with letter-by-letter colour-coded feedback and a progress bar.
+      <div class="project-desc" style="margin-bottom:0.8rem;">
+        Three Flask-based learning apps for primary school children, each targeting a different curriculum area:
       </div>
-      <div class="project-stack">
+      <div class="wide-inner">
+        <div class="wide-app">
+          <div class="wide-app-name">Letter Quest</div>
+          <div class="wide-app-desc">KS1 crossword puzzle app with a 674-word bank across 22 categories, emoji picture clues, and a difficulty selector.</div>
+          <a href="https://github.com/LegradiK/kids_crossword_webapp" target="_blank" class="project-link">↗ GitHub</a>
+        </div>
+        <div class="wide-app">
+          <div class="wide-app-name">MathDrill</div>
+          <div class="wide-app-desc">Arithmetic practice covering addition, subtraction, multiplication, and division. Adjustable difficulty, two layouts (inline and stacked column), score tracking with streaks, and instant feedback. Session state via Flask — no database required.</div>
+          <a href="https://github.com/LegradiK/simple_math_practice_app" target="_blank" class="project-link">↗ GitHub</a>
+        </div>
+        <div class="wide-app">
+          <div class="wide-app-name">Word Wizard</div>
+          <div class="wide-app-desc">Phonics and spelling quiz for Reception–Year 2. Words spoken aloud via Puter AI (British English voices, Amy & Brian) with browser speech synthesis as fallback. Four stages from simple CVC words to full sentence comprehension, with letter-by-letter colour-coded feedback and a progress bar.</div>
+          <a href="https://github.com/LegradiK/english_learning_app_for_kids" target="_blank" class="project-link">↗ GitHub</a>
+        </div>
+      </div>
+      <div class="project-stack" style="margin-top:1rem;">
         <span class="tag">Flask</span>
         <span class="tag">Vanilla JS</span>
         <span class="tag">Jinja2</span>
         <span class="tag">Web Speech API</span>
         <span class="tag">Puter AI</span>
-      </div>
-      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-        <a href="https://github.com/LegradiK/kids_crossword_webapp" target="_blank" class="project-link">↗ Letter Quest</a>
-        <a href="https://github.com/LegradiK/simple_math_practice_app" target="_blank" class="project-link">↗ MathDrill</a>
-        <a href="https://github.com/LegradiK/english_learning_app_for_kids" target="_blank" class="project-link">↗ Word Wizard</a>
       </div>
     </div>
  
@@ -767,6 +777,7 @@
  
   </div>
 </section>
+
 
 <!-- EXPERIENCE -->
 <section id="experience">
