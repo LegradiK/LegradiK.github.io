@@ -29,7 +29,7 @@
     line-height: 1.6;
   }
 
-  /* ── NAV ── */
+  /* NAV */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -67,7 +67,7 @@
 
   .nav-links a:hover { color: var(--white); }
 
-  /* ── HERO ── */
+  /* HERO */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -156,7 +156,6 @@
     color: var(--teal);
   }
 
-  /* hero right — stat cards */
   .hero-stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -193,7 +192,7 @@
     color: var(--white);
   }
 
-  /* ── SECTIONS ── */
+  /* SECTIONS */
   section {
     max-width: 1100px;
     margin: 0 auto;
@@ -217,7 +216,7 @@
     margin-bottom: 2.5rem;
   }
 
-  /* ── SKILLS ── */
+  /* SKILLS */
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -255,10 +254,10 @@
     font-family: 'DM Mono', monospace;
   }
 
-  /* ── PROJECTS ── */
+  /* PROJECTS */
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.2rem;
   }
 
@@ -280,6 +279,40 @@
 
   .project-card.featured {
     border-left: 3px solid var(--teal);
+  }
+
+  /* Wide card: spans 2 of 3 columns */
+  .project-card.wide {
+    grid-column: span 2;
+  }
+
+  /* Three-column sub-grid inside the wide card */
+  .wide-apps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .wide-app {
+    background: var(--slate-3);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .wide-app-name {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .wide-app-desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.55;
+    flex: 1;
   }
 
   .project-header {
@@ -317,24 +350,22 @@
     margin-top: auto;
   }
 
-    .project-link,
+  .project-link,
   .project-link:link,
   .project-link:visited {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
     font-family: 'DM Mono', monospace;
-    font-size: 0.95rem;
+    font-size: 0.82rem;
     color: var(--teal) !important;
     text-decoration: none !important;
-    margin-top: 0.2rem;
     transition: opacity 0.2s;
   }
- 
+
   .project-link:hover { opacity: 0.7; }
 
-
-  /* ── EXPERIENCE ── */
+  /* EXPERIENCE */
   .exp-item {
     display: grid;
     grid-template-columns: 180px 1fr;
@@ -370,7 +401,7 @@
     line-height: 1.7;
   }
 
-  /* ── CONTACT ── */
+  /* CONTACT */
   .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -446,7 +477,7 @@
     margin-bottom: 1.2rem;
   }
 
-  /* ── FOOTER ── */
+  /* FOOTER */
   footer {
     border-top: 1px solid var(--border);
     text-align: center;
@@ -456,7 +487,13 @@
     color: var(--muted);
   }
 
-  /* ── RESPONSIVE ── */
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .projects-grid { grid-template-columns: 1fr 1fr; }
+    .project-card.wide { grid-column: span 2; }
+    .wide-apps { grid-template-columns: 1fr; }
+  }
+
   @media (max-width: 768px) {
     nav { padding: 0 1.2rem; }
     .nav-links { gap: 1rem; }
@@ -466,6 +503,8 @@
     section { padding: 3.5rem 1.2rem; }
     .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
     .contact-grid { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card.wide { grid-column: span 1; }
   }
 </style>
 </head>
@@ -588,14 +627,12 @@
   </div>
 </section>
 
-
-
 <!-- PROJECTS -->
 <section id="projects">
   <div class="section-label">Things I've built</div>
   <h2 class="section-title">Projects</h2>
   <div class="projects-grid">
- 
+
     <!-- AUTOMATION -->
     <div class="project-card featured">
       <div class="project-header">
@@ -613,8 +650,7 @@
       </div>
       <a href="https://github.com/LegradiK/library_books_renewal_automation" target="_blank" class="project-link">↗ View on GitHub</a>
     </div>
- 
-    <!-- WEB APPS -->
+
     <div class="project-card">
       <div class="project-header">
         <div class="project-name">Orbital Intelligence Dashboard</div>
@@ -630,7 +666,7 @@
       </div>
       <a href="https://github.com/LegradiK/all_about_space_web_app" target="_blank" class="project-link">↗ View on GitHub</a>
     </div>
- 
+
     <div class="project-card">
       <div class="project-header">
         <div class="project-name">Coffee Shop E-Commerce</div>
@@ -646,7 +682,7 @@
       </div>
       <a href="https://github.com/LegradiK/coffee_shop_ecommerce" target="_blank" class="project-link">↗ View on GitHub</a>
     </div>
- 
+
     <!-- DATA ANALYSIS SUITE -->
     <div class="project-card featured">
       <div class="project-header">
@@ -654,8 +690,7 @@
         <span class="project-badge">2 projects</span>
       </div>
       <div class="project-desc">
-        Two independent data analysis projects using Python and pandas:
-        <br><br>
+        Two independent data analysis projects using Python and pandas:<br><br>
         <strong>US Police Incidents</strong> — multi-dataset merging, cleaning, and interactive Plotly visualisations of US police fatality data.<br><br>
         <strong>Space Missions</strong> — choropleth maps, stacked bar charts, USA vs USSR/Russia comparisons and cumulative launch leaders across decades.
       </div>
@@ -671,46 +706,33 @@
         <a href="https://github.com/LegradiK/space_mission_analysis" target="_blank" class="project-link">↗ Space Missions</a>
       </div>
     </div>
- 
-    <!-- EDUCATIONAL APPS SUITE — WIDE -->
+
+    <!-- EDUCATIONAL APPS SUITE -->
     <div class="project-card wide">
       <div class="project-header">
         <div class="project-name">Educational Apps Suite</div>
         <span class="project-badge">3 projects</span>
       </div>
-      <div class="project-desc" style="margin-bottom:0.8rem;">
-        Three Flask-based learning apps for primary school children, each targeting a different curriculum area:
+      <div class="project-desc">
+        Three Flask-based learning apps for primary school children, each targeting a different curriculum area:<br><br>
+        <strong>Letter Quest</strong> — KS1 crossword puzzle with a 674-word bank across 22 categories, emoji picture clues, and a difficulty selector.<br><br>
+        <strong>MathDrill</strong> — Arithmetic practice covering all four operations. Adjustable difficulty, score tracking with streaks, and instant feedback. Session state via Flask — no database required.<br><br>
+        <strong>Word Wizard</strong> — Phonics and spelling quiz for Reception–Year 2. Words spoken aloud via Puter AI (British English, Amy &amp; Brian) with Web Speech API fallback. Four stages from CVC words to sentence comprehension, with colour-coded letter feedback and a progress bar.
       </div>
-      <div class="wide-inner">
-        <div class="wide-app">
-          <div class="project-desc">
-            <strong>Letter Quest</strong> — KS1 crossword puzzle app with a 674-word bank across 22 categories, emoji picture clues, and a difficulty selector.</div>
-          </div>
-          <a href="https://github.com/LegradiK/kids_crossword_webapp" target="_blank" class="project-link">↗ GitHub</a>
-        </div>
-        <div class="wide-app">
-          <div class="project-desc">
-            <strong>MathDrill</strong> — Arithmetic practice covering addition, subtraction, multiplication, and division. Adjustable difficulty, two layouts (inline and stacked column), score tracking with streaks, and instant feedback. Session state via Flask — no database required.</div>
-          </div>
-          <a href="https://github.com/LegradiK/simple_math_practice_app" target="_blank" class="project-link">↗ GitHub</a>
-        </div>
-        <div class="wide-app">
-          <div class="project-desc">
-            <strong>Word Wizard</strong> — Phonics and spelling quiz for Reception–Year 2. Words spoken aloud via Puter AI (British English voices, Amy & Brian) with browser speech synthesis as fallback. Four stages from simple CVC words to full sentence comprehension, with letter-by-letter colour-coded feedback and a progress bar.</div>
-          </div>
-          <a href="https://github.com/LegradiK/english_learning_app_for_kids" target="_blank" class="project-link">↗ GitHub</a>
-        </div>
-      
-        <div class="project-stack" style="margin-top:1rem;">
-          <span class="tag">Flask</span>
-          <span class="tag">Vanilla JS</span>
-          <span class="tag">Jinja2</span>
-          <span class="tag">Web Speech API</span>
-          <span class="tag">Puter AI</span>
-        </div>
+      <div class="project-stack">
+        <span class="tag">Flask</span>
+        <span class="tag">Vanilla JS</span>
+        <span class="tag">Jinja2</span>
+        <span class="tag">Web Speech API</span>
+        <span class="tag">Puter AI</span>
+      </div>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+        <a href="https://github.com/LegradiK/kids_crossword_webapp" target="_blank" class="project-link">↗ Letter Quest</a>
+        <a href="https://github.com/LegradiK/simple_math_practice_app" target="_blank" class="project-link">↗ MathDrill</a>
+        <a href="https://github.com/LegradiK/english_learning_app_for_kids" target="_blank" class="project-link">↗ Word Wizard</a>
       </div>
     </div>
- 
+
     <!-- TOOLS & UTILITIES -->
     <div class="project-card">
       <div class="project-header">
@@ -727,7 +749,7 @@
       </div>
       <a href="https://github.com/LegradiK/sudoku_4x4_6x6_9x9" target="_blank" class="project-link">↗ View on GitHub</a>
     </div>
- 
+
     <div class="project-card">
       <div class="project-header">
         <div class="project-name">Jedi vs Dark Side (pygame)</div>
@@ -742,10 +764,10 @@
       </div>
       <a href="https://github.com/LegradiK/space_invader_app" target="_blank" class="project-link">↗ View on GitHub</a>
     </div>
- 
+
     <div class="project-card">
       <div class="project-header">
-        <div class="project-name">Book Discovery & Ranking</div>
+        <div class="project-name">Book Discovery &amp; Ranking</div>
         <span class="project-badge">2 projects</span>
       </div>
       <div class="project-desc">
@@ -762,15 +784,14 @@
         <a href="https://github.com/LegradiK/book_ranking_suggestion_app" target="_blank" class="project-link">↗ Ranking App</a>
       </div>
     </div>
- 
+
   </div>
 </section>
-
 
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="section-label">Background</div>
-  <h2 class="section-title">Experience & Education</h2>
+  <h2 class="section-title">Experience &amp; Education</h2>
 
   <div class="exp-item">
     <div class="exp-period">2023 – present</div>
@@ -786,7 +807,7 @@
   <div class="exp-item">
     <div class="exp-period">ongoing</div>
     <div>
-      <div class="exp-role">Open Source & Personal Projects</div>
+      <div class="exp-role">Open Source &amp; Personal Projects</div>
       <div class="exp-company">github.com/LegradiK</div>
       <div class="exp-desc">
         All projects version-controlled and documented on GitHub. Consistent commit history demonstrating iterative development, debugging discipline, and clean code organisation.
@@ -834,7 +855,7 @@
 </section>
 
 <footer>
-  LegradiK · Bolton, UK · Built with HTML & CSS · Hosted on GitHub Pages
+  LegradiK · Bolton, UK · Built with HTML &amp; CSS · Hosted on GitHub Pages
 </footer>
 
 </body>
