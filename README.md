@@ -14,10 +14,11 @@ A clean, single-page portfolio site hosted on GitHub Pages. It serves as a centr
 
 ## Contents
 
-| File | Description |
-|------|-------------|
-| `index.html` | Main portfolio page |
-| `LegradiK_CV.pdf` | Downloadable CV |
+
+| File              | Description         |
+| ------------------- | --------------------- |
+| `index.html`      | Main portfolio page |
+| `LegradiK_CV.pdf` | Downloadable CV     |
 
 ---
 
@@ -34,7 +35,7 @@ Projects showcased on the site — all available at [github.com/LegradiK](https:
 
 - **[Library Book Renewal Automation](https://github.com/LegradiK/library-book-renewal)** — Python/Playwright script that automates library logins and renewals across Bolton Spydus and BorrowBox, with scheduled GitHub Actions runs and email reporting
 - **[All About Space Web App](https://github.com/LegradiK/all_about_space_web_app)** — Flask/Jinja2 dashboard integrating NASA APIs (APOD, EPIC, NeoWs), ISS tracking, and D3.js visualisations
-- **Educational Apps Suite** — A collection of Flask-based learning tools including Letter Quest (KS1 crossword puzzles), Word Wizard, and MathDrill
+- **[KS1 Learning Hub](https://github.com/LegradiK/ks1_learning_hub)** — A Flask blueprint-based web app of eight KS1 curriculum games, covering spelling, arithmetic, phonics, reading, money, and telling the time**Educational Apps Suite** — A collection of Flask-based learning tools including Letter Quest (KS1 crossword puzzles), Word Wizard, and MathDri
 
 ---
 
