@@ -258,6 +258,7 @@
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: dense;
     gap: 1.2rem;
   }
 
@@ -284,6 +285,11 @@
   /* Wide card: spans 2 of 3 columns */
   .project-card.wide {
     grid-column: span 2;
+  }
+
+  /* Full-width card: spans all columns */
+  .project-card.full {
+    grid-column: 1 / -1;
   }
 
   /* Three-column sub-grid inside the wide card */
@@ -364,6 +370,31 @@
   }
 
   .project-link:hover { opacity: 0.7; }
+
+  .project-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .project-note {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .demo-login {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .demo-login code {
+    background: var(--slate-3);
+    color: var(--white);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+  }
 
   /* EXPERIENCE */
   .exp-item {
@@ -504,7 +535,8 @@
     .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
     .contact-grid { grid-template-columns: 1fr; }
     .projects-grid { grid-template-columns: 1fr; }
-    .project-card.wide { grid-column: span 1; }
+    .project-card.wide,
+    .project-card.full { grid-column: span 1; }
   }
 </style>
 </head>
@@ -586,6 +618,9 @@
         <span class="tag">Flask</span>
         <span class="tag">Flask Blueprints</span>
         <span class="tag">App Factory Pattern</span>
+        <span class="tag">Flask-Login</span>
+        <span class="tag">Flask-WTF</span>
+        <span class="tag">SQLAlchemy</span>
         <span class="tag">Django</span>
         <span class="tag">Jinja2</span>
         <span class="tag">HTMX</span>
@@ -596,6 +631,9 @@
       <div class="skill-tags">
         <span class="tag">Playwright</span>
         <span class="tag">GitHub Actions</span>
+        <span class="tag">CI/CD</span>
+        <span class="tag">Secrets Management</span>
+        <span class="tag">Pylint</span>
         <span class="tag">SMTP</span>
         <span class="tag">Cron</span>
       </div>
@@ -603,6 +641,7 @@
     <div class="skill-group">
       <div class="skill-group-name">Data</div>
       <div class="skill-tags">
+        <span class="tag">SQLite</span>
         <span class="tag">pandas</span>
         <span class="tag">Plotly</span>
         <span class="tag">seaborn</span>
@@ -616,6 +655,8 @@
         <span class="tag">Linux</span>
         <span class="tag">VS Code</span>
         <span class="tag">D3.js</span>
+        <span class="tag">REST APIs</span>
+        <span class="tag">Google Books API</span>
         <span class="tag">Web Speech API</span>
         <span class="tag">CSS Design Systems</span>
       </div>
@@ -637,30 +678,103 @@
   <h2 class="section-title">Projects</h2>
   <div class="projects-grid">
 
+    <!-- KS1 LEARNING HUB -->
+    <div class="project-card full featured">
+      <div class="project-header">
+        <div class="project-name">KS1 Learning Hub</div>
+        <span class="project-badge">Live · demo login</span>
+      </div>
+      <div class="project-desc">
+        A unified Flask web app where children aged 4–7 can learn, play and log their reading in one place, aligned with the UK KS1 curriculum. Built with Flask blueprints and an app factory pattern, with a shared design system across every section.
+      </div>
+      <div class="wide-apps">
+        <div class="wide-app">
+          <div class="wide-app-name">Platform</div>
+          <div class="wide-app-desc">
+            Child accounts with name and 4-digit PIN sign-in, so each child's progress is saved to their own account. A progress report shows time spent and answers given in each game, plus the number of books read. Content is grouped into School Subjects, Brain Games and My Bookshelf.
+          </div>
+        </div>
+        <div class="wide-app">
+          <div class="wide-app-name">My Bookshelf</div>
+          <div class="wide-app-desc">
+            Children search for books and add the ones they've read or are reading, with covers and details fetched automatically from the Google Books API. Star ratings, short reviews, reread counts and a want-to-read list. Originally a standalone reading tracker, then merged into the hub and restyled to match it.
+          </div>
+        </div>
+        <div class="wide-app">
+          <div class="wide-app-name">Games</div>
+          <div class="wide-app-desc">
+            <strong>Letter Quest</strong>: crossword with a custom grid engine and a 674-word bank across 22 categories. <strong>Word Wizard</strong>: phonics quiz with Puter AI text-to-speech and a Web Speech API fallback. <strong>Math Drill</strong>: four operations with difficulty levels. <strong>Story Detective</strong>: gap-fill reading comprehension for Year 1 and Year 2. Plus Sudoku, Coin Counter, Clock Master and Match Pairs.
+          </div>
+        </div>
+      </div>
+      <div class="project-stack">
+        <span class="tag">Flask</span>
+        <span class="tag">Flask Blueprints</span>
+        <span class="tag">App Factory Pattern</span>
+        <span class="tag">Jinja2</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Google Books API</span>
+        <span class="tag">Web Speech API</span>
+        <span class="tag">AI Integration</span>
+        <span class="tag">Authentication</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/LegradiK/ks1_learning_hub" target="_blank" class="project-link">↗ View on GitHub</a>
+        <a href="https://kidslearninggames.pythonanywhere.com/" target="_blank" class="project-link">↗ Live site</a>
+        <span class="demo-login">Demo login: username <code>test</code> · PIN <code>1234</code></span>
+      </div>
+    </div>
+
     <!-- AUTOMATION -->
     <div class="project-card featured">
       <div class="project-header">
         <div class="project-name">Library Book Renewal Automation</div>
-        <span class="project-badge">Lead project</span>
+        <span class="project-badge">Runs daily</span>
       </div>
       <div class="project-desc">
-        Automated login and book renewal for two library systems (Spydus and BorrowBox) using Playwright. Runs on a scheduled GitHub Actions cron job and emails a renewal report via SMTP. Handles multi-user credentials via GitHub Secrets.
+        Automated renewal of library books across two platforms (Spydus and BorrowBox) using Python and Playwright. Deployed via GitHub Actions on a daily schedule, with secure multi-user credential handling, environment-scoped secrets and screenshot-based CI debugging.
       </div>
       <div class="project-stack">
         <span class="tag">Python</span>
         <span class="tag">Playwright</span>
         <span class="tag">GitHub Actions</span>
-        <span class="tag">SMTP</span>
+        <span class="tag">CI/CD</span>
+        <span class="tag">Secrets Management</span>
       </div>
       <a href="https://github.com/LegradiK/library_books_renewal_automation" target="_blank" class="project-link">↗ View on GitHub</a>
     </div>
 
-    <div class="project-card">
+    <!-- MENU PLANNER -->
+    <div class="project-card featured">
       <div class="project-header">
-        <div class="project-name">Orbital Intelligence Dashboard</div>
+        <div class="project-name">Menu Planner</div>
+        <span class="project-badge">Live</span>
       </div>
       <div class="project-desc">
-        Space-themed web dashboard integrating NASA APOD, EPIC, NeoWs, Launch Library 2, AuroraWatch UK, and live ISS tracking. Built with Flask and D3.js visualisations.
+        Plans a week of meals from a library of 130 recipes and turns them into a shopping list, using each recipe's portion "weight" to balance the week. The shopping list cleans ingredient names with regex, merges duplicates and sorts them into supermarket categories. Flask-Login accounts with hashed passwords, a SQLite calendar of past menus, CSRF-protected forms, Pylint in CI, and a GitHub Actions workflow that emails a fresh menu every Friday.
+      </div>
+      <div class="project-stack">
+        <span class="tag">Flask</span>
+        <span class="tag">SQLite</span>
+        <span class="tag">SQLAlchemy</span>
+        <span class="tag">Flask-Login</span>
+        <span class="tag">Flask-WTF</span>
+        <span class="tag">GitHub Actions</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/LegradiK/menu-planner-2" target="_blank" class="project-link">↗ View on GitHub</a>
+        <a href="https://kahopythonbookshelf.pythonanywhere.com/" target="_blank" class="project-link">↗ Live site</a>
+        <span class="project-note">(free hosting, so the first load may take 30–60s)</span>
+      </div>
+    </div>
+
+    <!-- SPACE DASHBOARD -->
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-name">Horizon Intelligence: Space Dashboard</div>
+      </div>
+      <div class="project-desc">
+        Flask and Jinja2 dashboard aggregating live data from NASA APOD, EPIC and NeoWs, Launch Library 2, AuroraWatch UK and ISS tracking, with interactive D3.js visualisations and structured data rendering.
       </div>
       <div class="project-stack">
         <span class="tag">Flask</span>
@@ -671,32 +785,16 @@
       <a href="https://github.com/LegradiK/all_about_space_web_app" target="_blank" class="project-link">↗ View on GitHub</a>
     </div>
 
-    <div class="project-card">
-      <div class="project-header">
-        <div class="project-name">Coffee Shop E-Commerce</div>
-      </div>
-      <div class="project-desc">
-        Full e-commerce web app for a coffee shop — product listings, cart, and order flow. Built with a clean UI and backend logic in Python.
-      </div>
-      <div class="project-stack">
-        <span class="tag">Python</span>
-        <span class="tag">Flask</span>
-        <span class="tag">HTML/CSS</span>
-        <span class="tag">JavaScript</span>
-      </div>
-      <a href="https://github.com/LegradiK/coffee_shop_ecommerce" target="_blank" class="project-link">↗ View on GitHub</a>
-    </div>
-
     <!-- DATA ANALYSIS SUITE -->
-    <div class="project-card featured">
+    <div class="project-card wide">
       <div class="project-header">
         <div class="project-name">Data Analysis Suite</div>
         <span class="project-badge">2 projects</span>
       </div>
       <div class="project-desc">
         Two independent data analysis projects using Python and pandas:<br><br>
-        <strong>US Police Incidents</strong> — multi-dataset merging, cleaning, and interactive Plotly visualisations of US police fatality data.<br><br>
-        <strong>Space Missions</strong> — choropleth maps, stacked bar charts, USA vs USSR/Russia comparisons and cumulative launch leaders across decades.
+        <strong>US Police Incidents</strong>: multi-dataset merging, cleaning and interactive Plotly visualisations of US police fatality data.<br><br>
+        <strong>Space Missions</strong>: choropleth maps, stacked bar charts, USA vs USSR/Russia comparisons and cumulative launch leaders across decades.
       </div>
       <div class="project-stack">
         <span class="tag">pandas</span>
@@ -705,39 +803,26 @@
         <span class="tag">seaborn</span>
         <span class="tag">pycountry</span>
       </div>
-      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+      <div class="project-links">
         <a href="https://github.com/LegradiK/us_police_incidents_analysis" target="_blank" class="project-link">↗ US Police Incidents</a>
         <a href="https://github.com/LegradiK/space_mission_analysis" target="_blank" class="project-link">↗ Space Missions</a>
       </div>
     </div>
 
-    <!-- KS1 LEARNING HUB -->
-    <div class="project-card wide">
+    <div class="project-card">
       <div class="project-header">
-        <div class="project-name">KS1 Learning Hub</div>
-        <span class="project-badge">8 games, one app</span>
+        <div class="project-name">Coffee Shop E-Commerce</div>
       </div>
       <div class="project-desc">
-        A unified Flask web app of educational games for children aged 5–7, aligned with the UK KS1 curriculum. Originally three standalone apps, consolidated into a single hub using Flask blueprints and the app factory pattern, then extended with new games — all sharing one design system (CSS custom properties, Fredoka &amp; Nunito fonts, themed styling per game).<br><br>
-        <strong>Letter Quest</strong> — KS1 crossword puzzle with a 674-word bank across 22 categories, emoji picture clues, and a difficulty selector.<br><br>
-        <strong>Math Drill</strong> — Arithmetic practice covering all four operations, with adjustable difficulty, score tracking with streaks, and instant feedback.<br><br>
-        <strong>Word Wizard</strong> — Phonics and spelling quiz for Reception–Year 2. Words spoken aloud via Puter AI (British English) with Web Speech API fallback, colour-coded letter feedback, and four stages from CVC words to sentence comprehension.<br><br>
-        <strong>Story Detective</strong> — Mystery-themed reading comprehension game: gap-fill stories with tap-to-place word-bank choices, with separate Year 1 and Year 2 levels and stories kept in a standalone data module so new ones can be added without touching game logic.<br><br>
-        Plus <strong>Sudoku</strong>, <strong>Coin Counter</strong>, <strong>Clock Master</strong>, and <strong>Match Pairs</strong> — covering logic, money, telling the time, and memory.
+        Full e-commerce web app for a coffee shop, with product listings, cart and order flow. Built with a clean UI and backend logic in Python.
       </div>
       <div class="project-stack">
+        <span class="tag">Python</span>
         <span class="tag">Flask</span>
-        <span class="tag">Flask Blueprints</span>
-        <span class="tag">App Factory Pattern</span>
-        <span class="tag">Jinja2</span>
-        <span class="tag">Vanilla JS</span>
-        <span class="tag">Web Speech API</span>
+        <span class="tag">HTML/CSS</span>
+        <span class="tag">JavaScript</span>
       </div>
-      <div style="display:flex; gap:1rem; flex-wrap:wrap; align-items:center;">
-        <a href="https://github.com/LegradiK/ks1_learning_hub" target="_blank" class="project-link">↗ View on Github</a>
-        <a href="https://ks1-learning-hub.onrender.com/" target="_blank" class="project-link">↗ Live site</a>
-        <span style="font-size:0.8rem; opacity:0.7;">(free hosting — first load may take 30–60s)</span>
-      </div>
+      <a href="https://github.com/LegradiK/coffee_shop_ecommerce" target="_blank" class="project-link">↗ View on GitHub</a>
     </div>
 
     <!-- TOOLS & UTILITIES -->
@@ -762,7 +847,7 @@
         <div class="project-name">Jedi vs Dark Side (pygame)</div>
       </div>
       <div class="project-desc">
-        Star Wars–themed Space Invaders game with difficulty selection, a DarkSideHard subclass where enemies shoot back, custom Star Jedi TTF font, and a full collision detection system.
+        Star Wars-themed Space Invaders game with difficulty selection, a DarkSideHard subclass where enemies shoot back, custom Star Jedi TTF font, and a full collision detection system.
       </div>
       <div class="project-stack">
         <span class="tag">Python</span>
@@ -779,8 +864,8 @@
       </div>
       <div class="project-desc">
         Two related but independently functioning projects around book data:<br><br>
-        <strong>Goodreads Scraper</strong> — scrapes Goodreads to extract real reader data including ratings, reviews, and popularity metrics across genres.<br><br>
-        <strong>Book Ranking App</strong> — takes book data and applies a custom ranking algorithm to surface personalised recommendations based on ratings, popularity, and genre preference.
+        <strong>Goodreads Scraper</strong>: scrapes Goodreads to extract real reader data including ratings, reviews, and popularity metrics across genres.<br><br>
+        <strong>Book Ranking App</strong>: takes book data and applies a custom ranking algorithm to surface personalised recommendations based on ratings, popularity, and genre preference.
       </div>
       <div class="project-stack">
         <span class="tag">Python</span>
@@ -788,7 +873,7 @@
         <span class="tag">BeautifulSoup</span>
         <span class="tag">APIs</span>
       </div>
-      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+      <div class="project-links">
         <a href="https://github.com/LegradiK/goodreads_readers_favorite_books_webscraping" target="_blank" class="project-link">↗ Goodreads Scraper</a>
         <a href="https://github.com/LegradiK/book_ranking_suggestion_app" target="_blank" class="project-link">↗ Ranking App</a>
       </div>
@@ -832,7 +917,7 @@
   <div class="contact-grid">
     <div>
       <p class="contact-intro">
-        I'm actively looking for junior Python developer and IT support roles in Greater Manchester — hybrid or on-site. If you're working on something interesting, I'd love to hear about it.
+        I'm actively looking for junior Python developer and IT support roles in Greater Manchester, hybrid or on-site. If you're working on something interesting, I'd love to hear about it.
       </p>
       <div class="contact-links">
         <a href="mailto:legradi.kaho@gmail.com" class="contact-link">
@@ -856,7 +941,7 @@
         Available for work
       </div>
       <div class="availability-text">
-        Open to junior Python developer, IT support, and automation roles. Prefer hybrid or on-site arrangements in Greater Manchester — Bolton, Manchester city centre or Salford.
+        Open to junior Python developer, IT support, and automation roles. Prefer hybrid or on-site arrangements in Greater Manchester: Bolton, Manchester city centre or Salford.
       </div>
       <a href="mailto:legradi.kaho@gmail.com" class="btn btn-primary">Send a message</a>
     </div>
