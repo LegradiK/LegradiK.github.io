@@ -46,5 +46,4 @@ These projects are on the site, and all of them are on [github.com/LegradiK](htt
 
 ## Contact
 
-- 📧 [legradi.kaho@gmail.com](mailto:legradi.kaho@gmail.com)
-- 🌐 [legradik.github.io](https://legradik.github.io)
+Available on the portfolio website
